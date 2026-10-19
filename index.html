@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Black Flame Studio — an independent software studio. Website in progress.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="image.jpg">
+<link rel="apple-touch-icon" href="image.jpg">
+<title>Black Flame Studio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: black, the mark alone at the top, the words under it in a narrow column; one accent, the flame's white. */
+:root{--bg:#000;--ink:#f2f2f2;--ink2:#b9b9b9;--ink3:#7a7a7a;--line:#2a2a2a;--acc:#ffffff;--r:2px;
+      --cond:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--sans:Barlow,"Segoe UI",system-ui,sans-serif}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px;color-scheme:dark}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding-top:28px}
+.lang{align-self:flex-end;display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font:600 12px/1 var(--sans);letter-spacing:.1em}
+.lang button{border:0;background:transparent;color:var(--ink2);padding:8px 12px;cursor:pointer;font:inherit}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lang button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.mark{width:min(62vw,300px);height:auto;display:block}
+h1{font:800 clamp(34px,8vw,58px)/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;margin:0;text-wrap:balance}
+.sub{font:500 15px/1.5 var(--sans);letter-spacing:.02em;color:var(--ink2);margin:0;max-width:40ch}
+.status{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--acc);display:inline-block}
+@media (prefers-reduced-motion:no-preference){.status i{animation:blink 1.6s ease-in-out infinite}@keyframes blink{50%{opacity:.2}}}
+.prod{width:100%;margin-top:14px;border-top:1px solid var(--line);padding-top:22px;display:grid;gap:10px;text-align:left}
+.prod .eyebrow{font:700 12px/1 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin:0}
+.card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;text-decoration:none;color:inherit;box-shadow:inset 3px 0 0 var(--acc)}
+.card:hover,.card:focus-visible{border-color:var(--ink2);outline:none}
+.card .nm{font:800 22px/1 var(--cond);letter-spacing:.04em;text-transform:uppercase;margin:0}
+.card .ds{margin:3px 0 0;color:var(--ink2);font-size:14px}
+.card .go{font:700 13px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.card svg{width:34px;height:34px;flex:none}
+.foot{font-size:13px;color:var(--ink3);margin:18px 0 0}
+@media (max-width:420px){.card{grid-template-columns:auto 1fr}.card .go{grid-column:2;justify-self:start}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="lang" role="group" aria-label="Мова / Language">
+    <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+  </div>
+  <img class="mark" src="image.jpg" alt="Black Flame Studio" width="640" height="640">
+  <h1>Black Flame Studio</h1>
+  <p class="sub" data-uk="Незалежна студія розробки програмного забезпечення." data-en="An independent software studio.">An independent software studio.</p>
+  <span class="status"><i aria-hidden="true"></i><span data-uk="Сайт у розробці" data-en="Website in progress">Website in progress</span></span>
+  <section class="prod" aria-labelledby="pe">
+    <p class="eyebrow" id="pe" data-uk="Наші продукти" data-en="Our products">Our products</p>
+    <a class="card" href="https://heimdall.com.ua/m">
+      <svg viewBox="-16 -16 32 32" aria-hidden="true"><circle r="13" fill="none" stroke="currentColor" stroke-width="1.6"/><circle r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M0-16V-9M0 9v7M-16 0h7M9 0h7" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span><p class="nm">Heimdall</p><p class="ds" data-uk="Неофіційна мапа повітряних загроз для Києва та області — з дописів каналів, не з радара." data-en="An unofficial air-threat map for Kyiv and its oblast — from channel posts, not radar.">An unofficial air-threat map for Kyiv and its oblast — from channel posts, not radar.</p></span>
+      <span class="go" data-uk="Відкрити →" data-en="Open →">Open →</span>
+    </a>
+  </section>
+  <p class="foot">© 2026 Black Flame Studio · blackflamestudio.com</p>
+</main>
+<script>
+(function(){
+  function apply(l){ document.documentElement.lang = l; document.querySelectorAll('[data-uk]').forEach(function(e){ e.textContent = e.getAttribute('data-' + l) || e.textContent; });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+    try { localStorage.setItem('lang', l); } catch (e) {} }
+  var l = 'en'; try { l = localStorage.getItem('lang') || ((navigator.language || '').slice(0, 2) === 'uk' ? 'uk' : 'en'); } catch (e) {}
+  if (l !== 'uk' && l !== 'en') l = 'en';
+  apply(l);
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.lang); }); });
+})();
+</script>
+</body>
+</html>
